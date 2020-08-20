@@ -1,9 +1,12 @@
 'use strict';
 
-const random = (min, max) => {
-  // Generate random Number between from min to max
-  // Use Math.random() and Math.floor()
-  // See documentation at MDN
+const random = (min = 0, max = 0) => {
+  if (!max) {
+    max = min;
+    min = 0;
+  }
+
+  return Math.floor(Math.random() * Math.floor(max - min + 1)) + min;
 };
 
 module.exports = { random };
